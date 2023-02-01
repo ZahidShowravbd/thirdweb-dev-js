@@ -34,7 +34,9 @@ import {
 import { ChainId, SUPPORTED_CHAIN_ID } from "@thirdweb-dev/sdk";
 import * as menu from "@zag-js/menu";
 import { normalizeProps, useMachine } from "@zag-js/react";
-import React, { useId } from "react";
+import React from "react";
+import { v4 as uuidv4 } from 'uuid';
+
 import type { Connector } from "wagmi";
 
 const SUPPORTED_CONNECTORS = [
@@ -130,7 +132,7 @@ export const ConnectWallet: React.FC<ConnectWalletProps> = ({
   btnTitle,
   ...themeProps
 }) => {
-  const id = useId();
+  const id = uuidv4();
 
   const walletAddress = useAddress();
 
